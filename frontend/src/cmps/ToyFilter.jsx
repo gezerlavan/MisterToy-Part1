@@ -33,23 +33,19 @@ export function ToyFilter({ filterBy, onSetFilter, sortBy, onSetSort }) {
   return (
     <section className="toy-filter">
       <h3>Toys Filter/Sort</h3>
-      <form onSubmit={onSubmitFilter}>
-        <div className="filter-input-wrapper">
-          <input
-            onChange={handleChange}
-            value={txt}
-            type="text"
-            placeholder="Search"
-            name="txt"
-          />
-        </div>
-      </form>
-      <select name="inStock" value={inStock || ''} onChange={handleChange}>
-        <option value="">All</option>
-        <option value="true">In Stock</option>
-        <option value="false">Not in stock</option>
-      </select>
-      <div>
+      <form onSubmit={onSubmitFilter} className="filter-form flex align-center">
+        <input
+          onChange={handleChange}
+          value={txt}
+          type="text"
+          placeholder="Search"
+          name="txt"
+        />
+        <select name="inStock" value={inStock || ''} onChange={handleChange}>
+          <option value="">All</option>
+          <option value="true">In Stock</option>
+          <option value="false">Not in stock</option>
+        </select>
         <select
           multiple
           name="labels"
@@ -65,7 +61,7 @@ export function ToyFilter({ filterBy, onSetFilter, sortBy, onSetSort }) {
             ))}
           </>
         </select>
-      </div>
+      </form>
       <ToySort sortBy={sortBy} onSetSort={onSetSort} />
     </section>
   )
